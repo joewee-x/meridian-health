@@ -72,22 +72,14 @@ export default function LandingPage() {
           aria-hidden="true"
         />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 lg:pt-16 lg:pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-14 lg:pt-14 lg:pb-16 xl:pt-16 xl:pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             
             {/* Left Column: Core Value Proposition, Trust, & Action */}
             <div className="lg:col-span-7 flex flex-col items-start text-left">
-              {/* Trust Badge / Eyebrow */}
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-teal-50/90 border border-teal-200/90 text-teal-800 text-xs sm:text-sm font-semibold tracking-wide mb-6 backdrop-blur-xs shadow-xs">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-teal-600"></span>
-                </span>
-                <span>Next-Day & Same-Day Care Open • In-Person & Telehealth</span>
-              </div>
 
               {/* Main Headline */}
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12] mb-6">
+              <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12] mb-5 lg:mb-6">
                 Healthcare centered around{' '}
                 <span className="text-teal-700 underline decoration-teal-300 decoration-wavy decoration-2">
                   your life
@@ -95,12 +87,12 @@ export default function LandingPage() {
               </h1>
 
               {/* Calm, plain-language description */}
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mb-8">
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mb-6 lg:mb-7">
                 Connect with board-certified physicians for compassionate in-person and virtual care. Review plain-language lab results, message your care team 24/7, and book trusted appointments in under 90 seconds.
               </p>
 
               {/* Interactive Quick Care Search Bar */}
-              <form 
+              {/* <form 
                 onSubmit={handleHeroSearch}
                 className="w-full bg-white/90 backdrop-blur-md rounded-2xl p-3 sm:p-4 border border-slate-200/90 shadow-lg shadow-teal-950/5 mb-8"
               >
@@ -153,10 +145,10 @@ export default function LandingPage() {
                     </svg>
                   </button>
                 </div>
-              </form>
+              </form> */}
 
               {/* Primary Call to Action & Directory Link */}
-              <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 mb-8">
+              {/* <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 mb-8">
                 <Link
                   to="/book"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-teal-700 hover:bg-teal-800 active:bg-teal-900 rounded-xl shadow-md shadow-teal-700/20 hover:shadow-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 group"
@@ -180,10 +172,10 @@ export default function LandingPage() {
                 >
                   Browse our doctors
                 </Link>
-              </div>
+              </div> */}
 
               {/* Trust Indicators */}
-              <div className="pt-6 border-t border-slate-200/80 w-full flex flex-wrap items-center gap-6 sm:gap-8 text-xs sm:text-sm text-slate-600">
+              <div className="pt-5 lg:pt-6 border-t border-slate-200/80 w-full flex flex-wrap items-center gap-5 sm:gap-6 lg:gap-7 text-xs sm:text-sm text-slate-600">
                 <div className="flex items-center gap-2">
                   <div className="w-5 h-5 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center shrink-0">
                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -227,7 +219,7 @@ export default function LandingPage() {
                     fetchPriority="high"
                     loading="eager"
                     decoding="async"
-                    className="w-full h-auto object-cover object-center aspect-[4/3] sm:aspect-[4/3] lg:aspect-[4/4.5] group-hover:scale-[1.03] transition-transform duration-700"
+                    className="w-full h-[340px] sm:h-[460px] lg:h-[clamp(400px,58vh,560px)] object-cover object-center group-hover:scale-[1.03] transition-transform duration-700"
                   />
                   
                   {/* Subtle gradient vignette at the bottom */}
@@ -246,48 +238,6 @@ export default function LandingPage() {
                       </span>
                     </div>
                   </div>
-                </div>
-
-                {/* Floating Card 1: Top Left Verified Badge */}
-                <div className="absolute -top-5 -left-3 sm:-left-6 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 shadow-xl border border-slate-100/90 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center shrink-0">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <span className="block text-xs font-bold text-slate-900 leading-tight">Board-Certified Care</span>
-                    <span className="block text-[11px] text-slate-500 font-medium">100% credentialed & verified</span>
-                  </div>
-                </div>
-
-                {/* Floating Card 2: Bottom Right Next Available Slot */}
-                <div className="absolute -bottom-6 -right-2 sm:-right-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 shadow-xl border border-slate-100/90 max-w-[240px] sm:max-w-[260px]">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      Next Available
-                    </span>
-                    <span className="text-[11px] font-bold text-amber-500 flex items-center gap-0.5">
-                      ★ 4.96
-                    </span>
-                  </div>
-                  <p className="text-xs font-bold text-slate-900 truncate">Today at 2:30 PM</p>
-                  <p className="text-[11px] text-slate-500 truncate mb-2.5">Dr. Elena Rostova • In-Person or Video</p>
-                  <Link
-                    to="/book?provider=prov-1"
-                    className="w-full inline-flex items-center justify-center py-1.5 px-3 rounded-lg bg-teal-700 hover:bg-teal-800 text-white text-xs font-semibold shadow-xs transition-colors"
-                  >
-                    Quick Book Slot
-                  </Link>
-                </div>
-
-                {/* Floating Pill: Bottom Left HIPAA & Security */}
-                <div className="absolute bottom-3 -left-3 sm:-left-5 hidden sm:inline-flex items-center gap-2 bg-slate-900/90 text-white text-[11px] font-medium px-3.5 py-1.5 rounded-full shadow-lg backdrop-blur-md border border-slate-700">
-                  <svg className="w-3.5 h-3.5 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                  <span>256-Bit HIPAA Encrypted</span>
                 </div>
 
               </div>
