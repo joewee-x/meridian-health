@@ -1,4 +1,4 @@
-const API_BASE = '/api/v1';
+const API_BASE = import.meta.env.VITE_API_BASE || '/api/v1';
 
 const ACCESS_TOKEN_KEY = 'meridian_healthcare_access_token_v1';
 
