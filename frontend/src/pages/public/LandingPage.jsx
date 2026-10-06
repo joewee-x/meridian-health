@@ -81,9 +81,7 @@ export default function LandingPage() {
               {/* Main Headline */}
               <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12] mb-5 lg:mb-6">
                 Healthcare centered around{' '}
-                <span className="text-teal-700 underline decoration-teal-300 decoration-wavy decoration-2">
-                  your life
-                </span>, not paperwork.
+                <span className="text-teal-700">your life</span>, not paperwork.
               </h1>
 
               {/* Calm, plain-language description */}
@@ -224,20 +222,6 @@ export default function LandingPage() {
                   
                   {/* Subtle gradient vignette at the bottom */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/65 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Doctor Info Bar on the image bottom */}
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-sm font-bold tracking-tight drop-shadow-sm">Dr. Sarah Jenkins, MD</p>
-                        <p className="text-xs text-teal-200 font-medium drop-shadow-sm">Family & Preventative Medicine</p>
-                      </div>
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/90 text-[11px] font-semibold text-white backdrop-blur-xs shadow-xs">
-                        <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                        Active Today
-                      </span>
-                    </div>
-                  </div>
                 </div>
 
               </div>
