@@ -142,10 +142,14 @@ function BookAppointmentEntry() {
 function MainAppRoutes() {
   const location = useLocation();
   const isPatientPortal = location.pathname.startsWith('/patient');
+  const isAuthScreen =
+    location.pathname === '/login' ||
+    location.pathname === '/signup' ||
+    new URLSearchParams(location.search).get('mode') === 'signup';
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans">
-      {!isPatientPortal && <Header />}
+      {!isPatientPortal && !isAuthScreen && <Header />}
       <div className="flex-1">
         <Routes>
           {/* Public Pages */}
@@ -204,7 +208,7 @@ function MainAppRoutes() {
           <Route path="*" element={<LandingPage />} />
         </Routes>
       </div>
-      {!isPatientPortal && <Footer />}
+      {!isPatientPortal && !isAuthScreen && <Footer />}
     </div>
   );
 }

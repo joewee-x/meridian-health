@@ -17,8 +17,30 @@ export default function LoginPage() {
   } = useAuth();
 
   // Mode: 'login' | 'signup'
-  const initialMode = searchParams.get('mode') === 'signup' ? 'signup' : 'login';
-  const [mode, setMode] = useState(initialMode);
+  const isSignupRoute =
+    location.pathname === '/signup' || searchParams.get('mode') === 'signup';
+  const [mode, setMode] = useState(isSignupRoute ? 'signup' : 'login');
+
+  // Keep mode in sync with the URL so the app chrome (navbar/footer) can react
+  useEffect(() => {
+    const nextMode =
+      location.pathname === '/signup' || searchParams.get('mode') === 'signup'
+        ? 'signup'
+        : 'login';
+    setMode((prev) => (prev === nextMode ? prev : nextMode));
+  }, [location.pathname, searchParams]);
+
+  const goToSignup = () => {
+    setErrorMessage('');
+    setMode('signup');
+    if (location.pathname !== '/signup') navigate('/signup');
+  };
+
+  const goToLogin = () => {
+    setErrorMessage('');
+    setMode('login');
+    if (location.pathname !== '/login') navigate('/login');
+  };
 
   // Form states
   const [email, setEmail] = useState('');
@@ -184,7 +206,20 @@ export default function LoginPage() {
       
       {/* Container Box */}
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        
+
+        {/* Back to landing page (auth screen has no navbar) */}
+        <div className="mb-4">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-sm font-semibold text-slate-700 shadow-xs transition-colors hover:bg-slate-50 hover:text-teal-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-600"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            Back
+          </Link>
+        </div>
+
         {/* Brand link back to home */}
         <div className="text-center mb-6">
           <Link 
@@ -330,10 +365,7 @@ export default function LoginPage() {
                   type="button"
                   role="tab"
                   aria-selected={mode === 'login'}
-                  onClick={() => {
-                    setMode('login');
-                    setErrorMessage('');
-                  }}
+                  onClick={goToLogin}
                   className={`flex-1 pb-3 text-center text-sm font-semibold border-b-2 transition-colors cursor-pointer ${
                     mode === 'login'
                       ? 'border-teal-600 text-teal-800'
@@ -346,10 +378,7 @@ export default function LoginPage() {
                   type="button"
                   role="tab"
                   aria-selected={mode === 'signup'}
-                  onClick={() => {
-                    setMode('signup');
-                    setErrorMessage('');
-                  }}
+                  onClick={goToSignup}
                   className={`flex-1 pb-3 text-center text-sm font-semibold border-b-2 transition-colors cursor-pointer ${
                     mode === 'signup'
                       ? 'border-teal-600 text-teal-800'
@@ -371,10 +400,7 @@ export default function LoginPage() {
                     {errorMessage.includes("couldn't find") && (
                       <button
                         type="button"
-                        onClick={() => {
-                          setMode('signup');
-                          setErrorMessage('');
-                        }}
+                        onClick={goToSignup}
                         className="text-teal-700 underline font-semibold mt-1 inline-block"
                       >
                         Create an account with this email →
