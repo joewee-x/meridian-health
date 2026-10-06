@@ -1,0 +1,138 @@
+'use strict';
+
+const bcrypt = require('bcrypt');
+const IDS = require('../src/constants/seedIds');
+
+module.exports = {
+  async up(queryInterface) {
+    const passwordHash = await bcrypt.hash('password123', 12);
+    const now = new Date();
+
+    await queryInterface.bulkInsert('users', [
+      {
+        id: IDS.patient,
+        email: 'patient@meridian.health',
+        password_hash: passwordHash,
+        role: 'patient',
+        first_name: 'Sarah',
+        last_name: 'Connor',
+        phone: '(555) 342-8901',
+        is_active: true,
+        created_at: now,
+        updated_at: now,
+      },
+      {
+        id: IDS.patient2,
+        email: 'jordan.lee@example.com',
+        password_hash: passwordHash,
+        role: 'patient',
+        first_name: 'Jordan',
+        last_name: 'Lee',
+        phone: '(555) 918-2234',
+        is_active: true,
+        created_at: now,
+        updated_at: now,
+      },
+      {
+        id: IDS.patient3,
+        email: 'amelia.brooks@example.com',
+        password_hash: passwordHash,
+        role: 'patient',
+        first_name: 'Amelia',
+        last_name: 'Brooks',
+        phone: '(555) 770-4401',
+        is_active: true,
+        created_at: now,
+        updated_at: now,
+      },
+      {
+        id: IDS.provider1,
+        email: 'provider@meridian.health',
+        password_hash: passwordHash,
+        role: 'provider',
+        first_name: 'Elena',
+        last_name: 'Rostova',
+        phone: '(555) 782-9900',
+        is_active: true,
+        created_at: now,
+        updated_at: now,
+      },
+      {
+        id: IDS.provider2,
+        email: 'marcus.vance@meridian.health',
+        password_hash: passwordHash,
+        role: 'provider',
+        first_name: 'Marcus',
+        last_name: 'Vance',
+        phone: '(555) 782-9901',
+        is_active: true,
+        created_at: now,
+        updated_at: now,
+      },
+      {
+        id: IDS.provider3,
+        email: 'amara.chen@meridian.health',
+        password_hash: passwordHash,
+        role: 'provider',
+        first_name: 'Amara',
+        last_name: 'Chen',
+        phone: '(555) 782-9902',
+        is_active: true,
+        created_at: now,
+        updated_at: now,
+      },
+      {
+        id: IDS.provider4,
+        email: 'sarah.jenkins@meridian.health',
+        password_hash: passwordHash,
+        role: 'provider',
+        first_name: 'Sarah',
+        last_name: 'Jenkins',
+        phone: '(555) 782-9903',
+        is_active: true,
+        created_at: now,
+        updated_at: now,
+      },
+      {
+        id: IDS.providerPending1,
+        email: 'noah.williams@meridian.health',
+        password_hash: passwordHash,
+        role: 'provider',
+        first_name: 'Noah',
+        last_name: 'Williams',
+        phone: '(555) 782-9904',
+        is_active: true,
+        created_at: now,
+        updated_at: now,
+      },
+      {
+        id: IDS.providerPending2,
+        email: 'priya.shah@meridian.health',
+        password_hash: passwordHash,
+        role: 'provider',
+        first_name: 'Priya',
+        last_name: 'Shah',
+        phone: '(555) 782-9905',
+        is_active: true,
+        created_at: now,
+        updated_at: now,
+      },
+      {
+        id: IDS.admin,
+        email: 'admin@meridian.health',
+        password_hash: passwordHash,
+        role: 'admin',
+        first_name: 'Marcus',
+        last_name: 'Vance',
+        phone: '(555) 901-4422',
+        is_active: true,
+        created_at: now,
+        updated_at: now,
+      },
+    ]);
+  },
+
+  async down(queryInterface) {
+    await queryInterface.bulkDelete('users', null, {});
+  },
+};
